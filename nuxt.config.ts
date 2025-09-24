@@ -3,10 +3,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', "@nuxt/ui"],
   dir: {
     pages: "02-pages",
-    layouts: "01-app/layouts"
+    layouts: "01-app/layouts",
+    assets: "06-shared/assets",
   },
   vite: {
     server: {

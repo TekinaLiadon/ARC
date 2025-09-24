@@ -1,11 +1,10 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <NuxtPage />
+  <UContainer>
+    <NuxtPage />
+    as
+  </UContainer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
