@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
+  <UHeader title="ARC" />
   <UContainer>
     <NuxtPage />
-    as
   </UContainer>
 </template>
 

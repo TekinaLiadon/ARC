@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // @ts-ignore
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', "@nuxt/ui"],
+  modules: ["@nuxt/eslint", "@nuxt/ui"],
   dir: {
     pages: "02-pages",
     layouts: "01-app/layouts",
@@ -20,6 +20,15 @@ export default defineNuxtConfig({
     },
   },
   devServer: {
-    url: "http://127.0.0.1:3000"
-  }
-})
+    url: "http://127.0.0.1:3000",
+  },
+  icon: {
+    mode: "svg",
+    customCollections: [
+      {
+        prefix: "rpg",
+        dir: "./app/06-shared/assets/icons",
+      },
+    ],
+  },
+});

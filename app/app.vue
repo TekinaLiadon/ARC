@@ -1,7 +1,5 @@
 <template>
   <UApp>
-    <UHeader title="Nuxt UI" />
-    hei
     <NuxtLayout />
   </UApp>
 </template>
