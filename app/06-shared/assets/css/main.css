@@ -1,2 +1,29 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "@nuxt/ui";
+
+@theme {
+    /*--font-sans: "Cascadia Code", system-ui, sans-serif;*/
+
+    /* More customizations will go here */
+}
+
+:root {
+    --ui-primary: var(--color-emerald-500);
+
+    --ui-bg: var(--color-stone-800);
+    --ui-bg-elevated: var(--color-stone-700);
+    --ui-bg-accented: var(--color-emerald-950);
+
+    --ui-border: var(--color-stone-500);
+    --ui-border-accented: var(--color-stone-400);
+
+    --ui-text-dimmed: var(--color-stone-400);
+    --ui-text-muted: var(--color-stone-300);
+
+    --ui-radius: 0.2rem;
+    body {
+        background-image: url("@/06-shared/assets/patterns/pattern_37.svg");
+        background-size: 20%;
+        background-attachment: fixed;
+    }
+}

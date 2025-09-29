@@ -1,0 +1,9 @@
+{
+  "message": "Hello",
+  "login": {
+    "welcomeBack": "Welcome back!",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "or": "or"
+  }
+}

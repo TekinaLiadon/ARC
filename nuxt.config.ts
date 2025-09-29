@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// @ts-ignore
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/ui"],
+  modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxtjs/i18n"],
+  css: ["@/06-shared/assets/css/main.css"],
   dir: {
     pages: "02-pages",
     layouts: "01-app/layouts",
@@ -30,5 +30,27 @@ export default defineNuxtConfig({
         dir: "./app/06-shared/assets/icons",
       },
     ],
+  },
+  i18n: {
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        file: "../../app/01-app/locales/en.json",
+      },
+      {
+        code: "ru",
+        name: "Russian",
+        file: "../../app/01-app/locales/ru.json",
+      },
+    ],
+  },
+  ui: {
+    colorMode: {
+      preference: "dark",
+      fallback: "dark",
+    },
   },
 });
