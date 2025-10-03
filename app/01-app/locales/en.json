@@ -4,6 +4,19 @@
     "welcomeBack": "Welcome back!",
     "noAccount": "Don't have an account?",
     "signUp": "Sign up",
-    "or": "or"
+    "or": "or",
+    "haveAccount": "Have account already?",
+    "signIn": "Sign in",
+    "password": "Password",
+    "enterYour": "Enter your @.lower:{0}",
+    "passwordRepeat": "Repeat your password",
+    "email": "Email",
+    "newAccount": "Yay, that`s new user!"
+  },
+  "invalid": {
+    "email": "Invalid email",
+    "required": "@.capitalize:{0} is required",
+    "minCharacters": "Must be at least {0} characters",
+    "passwordRepeat": "Passwords should be identical"
   }
 }

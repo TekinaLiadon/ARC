@@ -48,22 +48,26 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-  <UAuthForm
-    :schema="schema"
-    icon="i-lucide-door-open"
-    :title="$t('login.welcomeBack')"
-    :providers="providers"
-    :separator="$t('login.or')"
-    :fields="fields"
-    @submit="onSubmit"
-  >
-    <template #description>
-      {{ $t("login.noAccount") }}
-      <ULink class="text-primary font-medium">
-        {{ $t("login.signUp") }}.
-      </ULink>
-    </template>
-  </UAuthForm>
+  <div class="flex flex-col items-center justify-center gap-4 pt-6">
+    <UPageCard class="w-full max-w-md">
+      <UAuthForm
+        :schema="schema"
+        icon="i-lucide-door-open"
+        :title="$t('login.welcomeBack')"
+        :providers="providers"
+        :separator="$t('login.or')"
+        :fields="fields"
+        @submit="onSubmit"
+      >
+        <template #description>
+          {{ $t("login.noAccount") }}
+          <ULink to="sign-up" class="text-primary font-medium">
+            {{ $t("login.signUp") }}.
+          </ULink>
+        </template>
+      </UAuthForm>
+    </UPageCard>
+  </div>
 </template>
 
 <style scoped></style>

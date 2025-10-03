@@ -4,6 +4,19 @@
     "welcomeBack": "С возвращением!",
     "noAccount": "Впервые здесь?",
     "signUp": "Регистрация",
-    "or": "или"
+    "or": "или",
+    "haveAccount": "Уже есть аккаунт?",
+    "signIn": "Аутентификация",
+    "password": "Пароль",
+    "enterYour": "Введи @.lower:{0}",
+    "passwordRepeat": "Еще раз пароль",
+    "email": "Email",
+    "newAccount": "Ура, новый пользователь!"
+  },
+  "invalid": {
+    "email": "Некорректный email",
+    "required": "@.capitalize:{0} это обязательное поле",
+    "minCharacters": "Должен быть минимум {0} символов",
+    "passwordRepeat": "Пароли не совпадают"
   }
 }
