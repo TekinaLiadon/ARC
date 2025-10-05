@@ -11,12 +11,15 @@
     "enterYour": "Введи @.lower:{0}",
     "passwordRepeat": "Еще раз пароль",
     "email": "Email",
-    "newAccount": "Ура, новый пользователь!"
+    "newAccount": "Ура, новый пользователь!",
+    "wrongEmail": "Не тот email?",
+    "codeSent": "Код отправлен на указанный email"
   },
   "invalid": {
     "email": "Некорректный email",
     "required": "@.capitalize:{0} это обязательное поле",
     "minCharacters": "Должен быть минимум {0} символов",
-    "passwordRepeat": "Пароли не совпадают"
+    "passwordRepeat": "Пароли не совпадают",
+    "title": "Ошибка"
   }
 }

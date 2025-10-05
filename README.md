@@ -1,5 +1,30 @@
 # Archetype Roleplay Constructor
 
+## Заметки для поднятия дев сервера и вообще
+
+### Node
+Нукст требователен к версии ноды. Можно применить ноду нужной проекту версии командой. 
+```bash
+nvm use
+```
+
+### CORS
+Чтобы небыло корсовых ошибок можно запустить хром в незащищенном режиме. 
+На маке делается этой командой:
+```bash
+open /Applications/Google\ Chrome.app --args --user-data-dir="/var/tmp/Chrome dev session" --disable-web-security
+```
+Вообще вот полезная [ссылка](https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome) 
+о том как вырубить корс в браузере, но можно, например, просто hosts отредачить и не парится.
+
+### Чистим кэши
+После установки зависимостей можно быстро пересобирать девсервер командой
+```bash
+nvm use && nuxt cleanup && nuxt prepare && yarn dev 
+```
+Вебшторм закинул вообще свои приколы в репозиторий и должна быть доступна команда fresh-restart в Run/Debug
+которая делает именно это + прерывает процессы в терминале (яндексмузыка попадает под раздачу, лол)
+
 ## Setup
 
 Make sure to install dependencies:
@@ -20,7 +45,7 @@ bun install
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server:
 
 ```bash
 # npm

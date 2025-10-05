@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     layouts: "01-app/layouts",
     assets: "06-shared/assets",
   },
+  runtimeConfig: {
+    public: {
+      castUrl: process.env.NUXT_PUBLIC_CAST_URL,
+    },
+  },
   vite: {
     server: {
       hmr: {

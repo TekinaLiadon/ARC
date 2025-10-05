@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import * as z from "zod";
 import type { FormSubmitEvent } from "@nuxt/ui";
+import { arcFetch } from "~/06-shared/arc-connection/arcFetch";
+import { useToastError } from "~/06-shared/helpers/useToastError";
 
 const { t } = useI18n();
+const toastError = useToastError();
 
-const fields = [
+const step = ref<"cred" | "code">("cred");
+const emailInQuestion = ref<string>("");
+
+// credential step
+const credFields = [
   {
     name: "email",
     type: "text" as const,
@@ -24,7 +31,7 @@ const fields = [
   },
 ];
 
-const schema = z
+const credSchema = z
   .object({
     email: z.email(t("invalid.email")),
     password: z
@@ -36,10 +43,60 @@ const schema = z
     path: ["passwordRepeat"],
     message: t("invalid.passwordRepeat"),
   });
-type Schema = z.output<typeof schema>;
+type CredSchema = z.output<typeof credSchema>;
 
-function onSubmit(payload: FormSubmitEvent<Schema>) {
-  console.log("Submitted", payload.data);
+const credSubmitting = ref(false);
+function credOnSubmit(payload: FormSubmitEvent<CredSchema>) {
+  credSubmitting.value = true;
+  arcFetch("/api/auth/registration", {
+    method: "POST",
+    body: {
+      email: payload.data.email,
+      password: payload.data.password,
+    },
+  })
+    .then(() => {
+      step.value = "code";
+      emailInQuestion.value = payload.data.email;
+    })
+    .catch((error) => {
+      toastError.add(error);
+    })
+    .finally(() => {
+      credSubmitting.value = false;
+    });
+}
+
+// code step
+
+const codeFields = [
+  {
+    name: "otp",
+    type: "otp",
+    length: 5,
+    placeholder: "○",
+  },
+];
+
+const codeSubmitting = ref(false);
+function codeOnSubmit(payload) {
+  codeSubmitting.value = true;
+  arcFetch("/api/auth/code", {
+    method: "POST",
+    body: {
+      email: emailInQuestion.value,
+      code: parseInt(payload.data.otp.join("")),
+    },
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      toastError.add(error);
+    })
+    .finally(() => {
+      codeSubmitting.value = false;
+    });
 }
 </script>
 
@@ -47,18 +104,34 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
   <div class="flex flex-col items-center justify-center gap-4 pt-6">
     <UPageCard class="w-full max-w-md">
       <UAuthForm
-        :schema="schema"
+        v-show="step === 'cred'"
+        :schema="credSchema"
         icon="i-lucide-party-popper"
         :title="$t('login.newAccount')"
         :separator="$t('login.or')"
-        :fields="fields"
-        @submit="onSubmit"
+        :fields="credFields"
+        :submit="{
+          loading: credSubmitting,
+        }"
+        @submit="credOnSubmit"
       >
         <template #footer>
           {{ $t("login.haveAccount") }}
           <ULink to="sign-in" class="text-primary font-medium">
             {{ $t("login.signIn") }}.
           </ULink>
+          <UButton @click="step = 'code'" />
+        </template>
+      </UAuthForm>
+      <UAuthForm
+        v-show="step === 'code'"
+        :fields="codeFields"
+        icon="i-lucide-rectangle-ellipsis"
+        :title="$t('login.codeSent')"
+        @submit="codeOnSubmit"
+      >
+        <template #footer>
+          <ULink @click="step = 'cred'">{{ $t("login.wrongEmail") }}</ULink>
         </template>
       </UAuthForm>
     </UPageCard>

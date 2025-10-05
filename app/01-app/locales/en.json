@@ -11,12 +11,15 @@
     "enterYour": "Enter your @.lower:{0}",
     "passwordRepeat": "Repeat your password",
     "email": "Email",
-    "newAccount": "Yay, that`s new user!"
+    "newAccount": "Yay, that`s new user!",
+    "wrongEmail": "Wrong email?",
+    "codeSent": "The code has been sent to your email"
   },
   "invalid": {
     "email": "Invalid email",
     "required": "@.capitalize:{0} is required",
     "minCharacters": "Must be at least {0} characters",
-    "passwordRepeat": "Passwords should be identical"
+    "passwordRepeat": "Passwords should be identical",
+    "title": "Error"
   }
 }
