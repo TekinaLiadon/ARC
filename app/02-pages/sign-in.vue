@@ -1,49 +1,57 @@
 <script setup lang="ts">
 import * as z from "zod";
 import type { FormSubmitEvent } from "@nuxt/ui";
+import { arcFetch } from "~/06-shared/arc-connection/arcFetch";
+import { useToastError } from "~/06-shared/helpers/useToastError";
+import { useUserStore } from "~/05-entities/user/userStore";
+
+const { t } = useI18n();
+const toastError = useToastError();
+const userStore = useUserStore();
 
 const fields = [
   {
     name: "email",
     type: "text" as const,
-    label: "Email",
-    placeholder: "Enter your email",
-    required: true,
+    label: t("login.email"),
+    placeholder: t("login.enterYour", ["login.email"]),
   },
   {
     name: "password",
-    label: "Password",
     type: "password" as const,
-    placeholder: "Enter your password",
-  },
-  {
-    name: "remember",
-    label: "Remember me",
-    type: "checkbox" as const,
-  },
-];
-
-const toast = useToast();
-const providers = [
-  {
-    label: "Google",
-    icon: "i-simple-icons-google",
-    onClick: () => {
-      toast.add({ title: "Google", description: "Login with Google" });
-    },
+    label: t("login.password"),
+    placeholder: t("login.enterYour", ["login.password"]),
   },
 ];
 
 const schema = z.object({
-  email: z.email("Invalid email"),
+  email: z.email(t("invalid.email")),
   password: z
-    .string("Password is required")
-    .min(8, "Must be at least 8 characters"),
+    .string(t("invalid.required", ["login.password"]))
+    .min(8, t("invalid.minCharacters", [8])),
 });
 
 type Schema = z.output<typeof schema>;
+const formSubmitting = ref(false);
 function onSubmit(payload: FormSubmitEvent<Schema>) {
-  console.log("Submitted", payload.data);
+  formSubmitting.value = true;
+  arcFetch("/api/auth/", {
+    method: "POST",
+    body: {
+      email: payload.data.email,
+      password: payload.data.password,
+    },
+  })
+    .then((response) => {
+      userStore.logIn(response.token);
+    })
+    .catch((error) => {
+      console.log(error);
+      toastError.add(error);
+    })
+    .finally(() => {
+      formSubmitting.value = false;
+    });
 }
 </script>
 
@@ -54,9 +62,11 @@ function onSubmit(payload: FormSubmitEvent<Schema>) {
         :schema="schema"
         icon="i-lucide-door-open"
         :title="$t('login.welcomeBack')"
-        :providers="providers"
         :separator="$t('login.or')"
         :fields="fields"
+        :submit="{
+          loading: formSubmitting,
+        }"
         @submit="onSubmit"
       >
         <template #description>

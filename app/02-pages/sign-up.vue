@@ -3,9 +3,11 @@ import * as z from "zod";
 import type { FormSubmitEvent } from "@nuxt/ui";
 import { arcFetch } from "~/06-shared/arc-connection/arcFetch";
 import { useToastError } from "~/06-shared/helpers/useToastError";
+import { useUserStore } from "~/05-entities/user/userStore";
 
 const { t } = useI18n();
 const toastError = useToastError();
+const userStore = useUserStore();
 
 const step = ref<"cred" | "code">("cred");
 const emailInQuestion = ref<string>("");
@@ -89,7 +91,7 @@ function codeOnSubmit(payload) {
     },
   })
     .then((response) => {
-      console.log(response);
+      userStore.logIn(response.token);
     })
     .catch((error) => {
       toastError.add(error);
@@ -120,7 +122,7 @@ function codeOnSubmit(payload) {
           <ULink to="sign-in" class="text-primary font-medium">
             {{ $t("login.signIn") }}.
           </ULink>
-          <UButton @click="step = 'code'" />
+          <!--          <UButton @click="step = 'code'" />-->
         </template>
       </UAuthForm>
       <UAuthForm
@@ -128,6 +130,9 @@ function codeOnSubmit(payload) {
         :fields="codeFields"
         icon="i-lucide-rectangle-ellipsis"
         :title="$t('login.codeSent')"
+        :submit="{
+          loading: codeSubmitting,
+        }"
         @submit="codeOnSubmit"
       >
         <template #footer>

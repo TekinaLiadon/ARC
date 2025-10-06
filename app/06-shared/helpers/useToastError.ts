@@ -3,7 +3,7 @@ export function useToastError() {
   const { t } = useI18n();
 
   function add(error: Error | string) {
-    if (typeof error !== Error) error = error.data.message;
+    if (typeof error !== Error) error = error.data?.message;
 
     toast.add({
       color: "error",
