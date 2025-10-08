@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as locales from "@nuxt/ui/locale";
+import HeaderDefault from "~/03-widgets/header/HeaderDefault.vue";
 
 const { locale } = useI18n();
 
@@ -13,6 +14,7 @@ useHead({
 
 <template>
   <UApp :locale="locales[locale]">
+    <HeaderDefault />
     <NuxtLayout />
   </UApp>
 </template>

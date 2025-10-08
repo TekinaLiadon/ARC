@@ -21,5 +21,16 @@
     "minCharacters": "Must be at least {0} characters",
     "passwordRepeat": "Passwords should be identical",
     "title": "Error"
+  },
+  "user": {
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "lair": {
+    "campaigns": {
+      "title": "My campaigns",
+      "description": "Join to the campaign or create your own to start your adventures!",
+      "none": "No campaigns here. Yet."
+    }
   }
 }

@@ -7,12 +7,14 @@ export const useUserStore = defineStore("user-store", {
     token: null,
   }),
   actions: {
-    logIn(token) {
+    logIn(token: string) {
       this.token = token;
     },
-    async fetchUser() {
-      await arcFetch("");
+    logOut() {
+      this.token = null;
+      this.$reset();
     },
+    async fetchUser() {},
   },
   persist: true,
 });
