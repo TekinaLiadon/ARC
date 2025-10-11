@@ -36,10 +36,15 @@
       "enter": "Играть"
     },
     "home": "Главная",
-    "campaignsTitle": "Кампании"
+    "campaignsTitle": "Кампании",
+    "charactersTitle": "Персонажи",
+    "characters": {
+      "newCharacter": "Новый персонаж"
+    }
   },
   "general": {
     "create": "Создать",
-    "join": "Вступить"
+    "join": "Вступить",
+    "save": "Сохранить"
   }
 }

@@ -30,6 +30,18 @@ const items = ref<NavigationMenuItem[][]>([
         },
       ],
     },
+    {
+      label: t("lair.charactersTitle"),
+      icon: "i-lucide-users",
+      defaultOpen: true,
+      children: [
+        {
+          label: t("general.create"),
+          icon: "i-lucide-user-pen",
+          to: lp("/lair/create-character"),
+        },
+      ],
+    },
   ],
 ]);
 </script>

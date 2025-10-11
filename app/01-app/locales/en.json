@@ -36,10 +36,15 @@
       "enter": "Play"
     },
     "home": "Home",
-    "campaignsTitle": "Campaigns"
+    "campaignsTitle": "Campaigns",
+    "charactersTitle": "Characters",
+    "characters": {
+      "newCharacter": "New character"
+    }
   },
   "general": {
     "create": "Create",
-    "join": "Join"
+    "join": "Join",
+    "save": "Save"
   }
 }

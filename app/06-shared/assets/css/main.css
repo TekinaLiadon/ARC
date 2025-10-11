@@ -22,8 +22,15 @@
     --ui-text-muted: var(--color-stone-300);
 
     --ui-radius: 0.2rem;
+
+    --arc-charsheet-bg: var(--color-zinc-900);
     body {
         background-image: url("@/06-shared/assets/patterns/pattern_37.svg");
+        background-size: 20%;
+        background-attachment: fixed;
+    }
+    .character-sheet {
+        background-image: url("@/06-shared/assets/patterns/pattern_54.svg");
         background-size: 20%;
         background-attachment: fixed;
     }
