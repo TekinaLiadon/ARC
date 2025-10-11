@@ -30,7 +30,16 @@
     "campaigns": {
       "title": "My campaigns",
       "description": "Join to the campaign or create your own to start your adventures!",
-      "none": "No campaigns here. Yet."
-    }
+      "none": "No campaigns here. Yet.",
+      "creatorBadge": "Creator",
+      "gmBadge": "GM",
+      "enter": "Play"
+    },
+    "home": "Home",
+    "campaignsTitle": "Campaigns"
+  },
+  "general": {
+    "create": "Create",
+    "join": "Join"
   }
 }

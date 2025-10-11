@@ -35,7 +35,7 @@ const dropdownItems = ref<DropdownMenuItem[][]>([
       }"
     />
   </UDropdownMenu>
-  <UButton v-else to="sign-in" icon="i-lucide-door-open">
+  <UButton v-else :to="lp('/sign-in')" icon="i-lucide-door-open">
     {{ $t("login.signIn") }}
   </UButton>
 </template>

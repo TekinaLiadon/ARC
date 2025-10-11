@@ -92,6 +92,7 @@ function codeOnSubmit(payload) {
   })
     .then((response) => {
       userStore.logIn(response.token);
+      navigateTo(lp("/lair"));
     })
     .catch((error) => {
       toastError.add(error);

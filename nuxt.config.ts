@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate",
   ],
+  imports: {
+    dirs: ["01-app/global-composables"],
+  },
   css: ["@/06-shared/assets/css/main.css"],
   dir: {
     pages: "02-pages",

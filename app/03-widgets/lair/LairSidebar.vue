@@ -1,38 +1,32 @@
 <script setup lang="ts">
+import type { NavigationMenuItem } from "#ui/components/NavigationMenu.vue";
+
+const { t } = useI18n();
+
 const items = ref<NavigationMenuItem[][]>([
   [
     {
-      label: "Guide",
-      icon: "i-lucide-book-open",
+      label: t("lair.home"),
+      icon: "i-lucide-home",
+      to: lp("/lair"),
+    },
+    {
+      label: t("lair.campaignsTitle"),
+      icon: "i-lucide-compass",
+      defaultOpen: true,
       children: [
         {
-          label: "Introduction",
-          description: "Fully styled and customizable components for Nuxt.",
-          icon: "i-lucide-house",
+          label: t("lair.campaigns.title"),
+          icon: "i-lucide-book-copy",
+          to: lp("/lair/campaigns"),
         },
         {
-          label: "Installation",
-          description:
-            "Learn how to install and configure Nuxt UI in your application.",
-          icon: "i-lucide-cloud-download",
+          label: t("general.create"),
+          icon: "i-lucide-wand-sparkles",
         },
         {
-          label: "Icons",
-          icon: "i-lucide-smile",
-          description:
-            "You have nothing to do, @nuxt/icon will handle it automatically.",
-        },
-        {
-          label: "Colors",
-          icon: "i-lucide-swatch-book",
-          description:
-            "Choose a primary and a neutral color from your Tailwind CSS theme.",
-        },
-        {
-          label: "Theme",
-          icon: "i-lucide-cog",
-          description:
-            "You can customize components by using the `class` / `ui` props or in your app.config.ts.",
+          label: t("general.join"),
+          icon: "i-lucide-circle-plus",
         },
       ],
     },
