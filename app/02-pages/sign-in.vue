@@ -4,12 +4,13 @@ import type { FormSubmitEvent } from "@nuxt/ui";
 import { arcFetch } from "~/06-shared/arc-connection/arcFetch";
 import { useToastError } from "~/06-shared/helpers/useToastError";
 import { useUserStore } from "~/05-entities/user/userStore";
+import {Fields} from "../06-shared/type/pages/global";
 
 const { t } = useI18n();
 const toastError = useToastError();
 const userStore = useUserStore();
 
-const fields = [
+const fields: Fields[] = [
   {
     name: "email",
     type: "text" as const,

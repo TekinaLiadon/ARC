@@ -4,6 +4,7 @@ import type { FormSubmitEvent } from "@nuxt/ui";
 import { arcFetch } from "~/06-shared/arc-connection/arcFetch";
 import { useToastError } from "~/06-shared/helpers/useToastError";
 import { useUserStore } from "~/05-entities/user/userStore";
+import {CodeFields, Fields} from "../06-shared/type/pages/global";
 
 const { t } = useI18n();
 const toastError = useToastError();
@@ -13,7 +14,7 @@ const step = ref<"cred" | "code">("cred");
 const emailInQuestion = ref<string>("");
 
 // credential step
-const credFields = [
+const credFields: Fields[] = [
   {
     name: "email",
     type: "text" as const,
@@ -47,7 +48,7 @@ const credSchema = z
   });
 type CredSchema = z.output<typeof credSchema>;
 
-const credSubmitting = ref(false);
+const credSubmitting = ref<Boolean>(false);
 function credOnSubmit(payload: FormSubmitEvent<CredSchema>) {
   credSubmitting.value = true;
   arcFetch("/api/auth/registration", {
@@ -71,7 +72,7 @@ function credOnSubmit(payload: FormSubmitEvent<CredSchema>) {
 
 // code step
 
-const codeFields = [
+const codeFields: CodeFields[] = [
   {
     name: "otp",
     type: "otp",
@@ -80,8 +81,8 @@ const codeFields = [
   },
 ];
 
-const codeSubmitting = ref(false);
-function codeOnSubmit(payload) {
+const codeSubmitting = ref<Boolean>(false);
+function codeOnSubmit(payload: FormSubmitEvent<CodeFields>): void {
   codeSubmitting.value = true;
   arcFetch("/api/auth/code", {
     method: "POST",

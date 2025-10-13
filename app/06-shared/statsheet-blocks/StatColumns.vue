@@ -1,9 +1,6 @@
 <script setup>
-const props = defineProps({
-  columns: {
-    type: Number,
-    default: 3,
-  },
+const props = withDefaults(defineProps<{ columns?: number }>(), {
+  columns: 3,
 });
 
 const adaptiveColumns = computed(() => {

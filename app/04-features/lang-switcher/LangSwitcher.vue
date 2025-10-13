@@ -8,7 +8,7 @@ const availableLocale = computed(() => {
   );
 });
 
-function switchAndSave() {
+function switchAndSave(): void {
   setLocale(availableLocale.value);
 }
 </script>

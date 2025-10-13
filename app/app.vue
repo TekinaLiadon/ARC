@@ -2,7 +2,7 @@
 import * as locales from "@nuxt/ui/locale";
 import HeaderDefault from "~/03-widgets/header/HeaderDefault.vue";
 
-const { locale } = useI18n();
+const { locale } = useI18n<{ locale: 'en' | 'ru' }>();
 
 useHead({
   htmlAttrs: {

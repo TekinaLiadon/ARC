@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import {Link} from "../../06-shared/type/pages/global";
+
 const { t } = useI18n();
 
-const links = ref([
+const links = ref<Link[]>([
   {
     label: t("general.create"),
     icon: "i-lucide-wand-sparkles",
