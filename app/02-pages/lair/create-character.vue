@@ -11,8 +11,8 @@ import CharacterSheet from "~/05-entities/charsheet/CharacterSheet.vue";
             {{ $t("lair.characters.newCharacter") }}
           </div>
           <div>
-            <UButton color="success" size="lg"
-              >{{ $t("general.save") }}
+            <UButton color="success" size="lg">
+              {{ $t("general.save") }}
             </UButton>
           </div>
         </div>

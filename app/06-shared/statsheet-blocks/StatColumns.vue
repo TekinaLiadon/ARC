@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   columns: {
     type: Number,
@@ -18,9 +18,9 @@ const adaptiveColumns = computed(() => {
 </script>
 
 <template>
-  <div class="stat-columns">
+  <div class="stat-columns mb-4">
     <div
-      class="grid"
+      class="grid gap-2"
       :style="{
         '--col-count': props.columns,
         '--col-count-medium': adaptiveColumns.medium,
@@ -38,18 +38,17 @@ const adaptiveColumns = computed(() => {
 }
 .grid {
   display: grid;
-  gap: 0.5rem;
   grid-template-columns: repeat(var(--col-count), 1fr);
-}
 
-@container (width < 500px) {
-  .grid {
+  & > * {
+    min-width: 0;
+  }
+
+  @container (width < 500px) {
     grid-template-columns: repeat(var(--col-count-medium), 1fr);
   }
-}
 
-@container (width < 200px) {
-  .grid {
+  @container (width < 350px) {
     grid-template-columns: repeat(var(--col-count-small), 1fr);
   }
 }

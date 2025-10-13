@@ -1,5 +1,6 @@
 export function useToastError() {
   const toast = useToast();
+
   const { t } = useI18n();
 
   function add(error: Error | string) {

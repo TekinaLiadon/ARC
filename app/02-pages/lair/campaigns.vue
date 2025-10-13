@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { ButtonProps } from "#ui/components/Button.vue";
 const { t } = useI18n();
 
-const links = ref([
+const links = ref<ButtonProps[]>([
   {
     label: t("general.create"),
     icon: "i-lucide-wand-sparkles",

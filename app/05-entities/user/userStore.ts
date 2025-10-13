@@ -14,7 +14,7 @@ export const useUserStore = defineStore("user-store", {
       this.token = null;
       this.$reset();
     },
-    async fetchUser() {},
+    async fetchUser(): Promise<void> {},
   },
   persist: true,
 });
