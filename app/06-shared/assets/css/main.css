@@ -8,22 +8,63 @@
 }
 
 :root {
-    --ui-primary: var(--color-amber-300);
-    --ui-secondary: var(--color-sky-300);
+    /*--ui-primary: var(--color-amber-300);*/
+    /*--ui-secondary: var(--color-sky-300);*/
 
-    --ui-bg: var(--color-stone-800);
-    --ui-bg-elevated: var(--color-stone-700);
-    --ui-bg-accented: var(--color-amber-950);
+    /*--ui-bg: var(--color-stone-800);*/
+    /*--ui-bg-elevated: var(--color-stone-600);*/
+    /*--ui-bg-accented: var(--color-sky-950);*/
 
-    --ui-border: var(--color-stone-500);
-    --ui-border-accented: var(--color-stone-400);
+    /*--ui-border: var(--color-stone-500);*/
+    /*--ui-border-accented: var(--color-stone-400);*/
+    /*--ui-border-muted: var(--color-sky-900);*/
 
-    --ui-text-dimmed: var(--color-stone-400);
-    --ui-text-muted: var(--color-stone-300);
+    /*--ui-text-dimmed: var(--color-stone-400);*/
+    /*--ui-text-muted: var(--color-stone-300);*/
 
-    --ui-radius: 0.2rem;
+    /*--ui-radius: 0.2rem;*/
 
-    --arc-charsheet-bg: var(--color-zinc-900);
+    /*--arc-charsheet-bg: var(--color-zinc-900);*/
+
+    /* === Base === */
+    --ui-background: #0D0A1A;     /* Deep indigo night */
+    --ui-surface: #1A1428;        /* Panel background */
+    --ui-border: #3A2D4A;         /* Subtle violet-gray */
+    --ui-text: #E8E6F0;           /* Primary text */
+    --ui-text-muted: #AFA7C2;     /* Secondary text */
+
+    /* === Core UI === */
+    --ui-primary: #A97FFF;        /* Arcane lavender glow */
+    --ui-primary-hover: #C2A6FF;  /* Hover highlight */
+    --ui-secondary: #56D6A0;      /* Emerald mist */
+    --ui-secondary-hover: #7FEABF;
+
+    /* === States === */
+    --ui-success: #7AE582;        /* Verdant success */
+    --ui-warning: #EFB366;        /* Warm amber */
+    --ui-error: #E45B78;          /* Fae rose */
+    --ui-info: #5FA8FF;           /* Celestial blue */
+
+    /* === Accents & Utility === */
+    --ui-link: #B693FF;
+    --ui-link-hover: #D1B5FF;
+    --ui-focus-ring: #C2A6FF80;   /* Soft lavender glow */
+    --ui-shadow: rgba(0, 0, 0, 0.4);
+    --ui-glow: rgba(169, 127, 255, 0.25);
+
+    /* === Scrollbar (optional) === */
+    --ui-scrollbar-track: #1A1428;
+    --ui-scrollbar-thumb: #3A2D4A;
+
+    [data-theme="light"] {
+        --ui-background: #F6F0E6;
+        --ui-surface: #ECE3D3;
+        --ui-border: #D1C4A3;
+        --ui-text: #2C1E12;
+        --ui-primary: #8E5FFF;
+        --ui-secondary: #4EBE89;
+    }
+
     body {
         background-image: url("@/06-shared/assets/patterns/pattern_37.svg");
         background-size: 20%;
@@ -32,6 +73,5 @@
     .character-sheet {
         background-image: url("@/06-shared/assets/patterns/pattern_54.svg");
         background-size: 20%;
-        background-attachment: fixed;
     }
 }

@@ -23,6 +23,7 @@ const links = ref<ButtonProps[]>([
     :links="links"
   />
   <UPageBody>
+    <!-- TODO: use UEmpty instead  -->
     <UPageCTA :description="$t('lair.campaigns.none')" variant="soft" />
     <UPageCard
       orientation="horizontal"

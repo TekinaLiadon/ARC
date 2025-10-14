@@ -1,18 +1,16 @@
 <script setup lang="ts">
-interface Props {
-  theme: {
-    root: string;
-  };
-}
-const props = withDefaults(defineProps<Props>(), {
-  theme: {
+import type { InputProps } from "#ui/components/Input.vue";
+
+const props = withDefaults(defineProps<InputProps>(), {
+  ui: {
     root: "w-full",
   },
+  size: "xl",
 });
 </script>
 
 <template>
-  <UInput size="xl" :ui="props.theme">
+  <UInput v-bind="props">
     <template #trailing>
       <slot name="trailing" />
     </template>
