@@ -62,6 +62,15 @@ export default defineNuxtConfig({
       },
     ],
   },
+  fonts: {
+    families: [
+      {
+        name: "Montserrat Alternates",
+        provider: "google",
+        fallbacks: ["system-ui"],
+      },
+    ],
+  },
   ui: {
     colorMode: {
       preference: "dark",

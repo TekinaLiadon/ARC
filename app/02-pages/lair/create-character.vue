@@ -4,7 +4,7 @@ import CharacterSheet from "~/05-entities/charsheet/CharacterSheet.vue";
 
 <template>
   <UPageBody>
-    <UPageCard class="bg-(--arc-charsheet-bg)" :ui="{ header: 'w-full' }">
+    <UPageCard class="bg-(--ui-bg)" :ui="{ header: 'w-full' }">
       <template #header>
         <div class="flex items-center justify-between">
           <div class="font-bold text-xl">

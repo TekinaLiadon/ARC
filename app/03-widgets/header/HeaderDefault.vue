@@ -16,6 +16,7 @@ const items = computed<NavigationMenuItem[]>(() => [
     <UNavigationMenu :items="items" />
     <template #right>
       <div class="not-lg:hidden flex gap-5">
+        <UColorModeSelect />
         <LangSwitcher />
         <UserBadge />
       </div>
