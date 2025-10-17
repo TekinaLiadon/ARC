@@ -1,0 +1,68 @@
+.arcane {
+    @theme arcane {
+        --font-sans: "Montserrat Alternates", system-ui, sans-serif;
+
+        --ui-radius: 0.2rem;
+
+        --color-depth-50: #f5f4fb;
+        --color-depth-100: #ebe9f6;
+        --color-depth-200: #d1cbeb;
+        --color-depth-300: #aa9fda;
+        --color-depth-400: #7d6cc6;
+        --color-depth-500: #6c5abd;
+        --color-depth-600: #513da8;
+        --color-depth-700: #392a79;
+        --color-depth-800: #2a1f56;
+        --color-depth-900: #1c1537;
+        --color-depth-950: #0D0A1A;
+    }
+}
+
+.arcane.dark {
+    --ui-primary: var(--color-sky-400);
+    --ui-secondary: var(--color-violet-300);
+
+    --ui-bg: var(--color-depth-950);
+    --ui-bg-muted: var(--color-depth-800);
+    --ui-bg-elevated: var(--color-indigo-950);
+    --ui-bg-accented: var(--color-indigo-950);
+    --ui-bg-inverted: var(--color-depth-200);
+
+    --ui-border: var(--color-depth-900);
+    --ui-border-muted: var(--color-depth-800);
+    --ui-border-accented: var(--color-depth-600);
+    --ui-border-inverted: var(--color-depth-300);
+
+    --ui-text-dimmed: var(--color-indigo-400);
+    --ui-text-muted: var(--color-indigo-300);
+    --ui-text-toned: var(--color-sky-200);
+    --ui-text: var(--color-sky-100);
+    --ui-text-highlighted: var(--color-white);
+    --ui-text-inverted: var(--color-depth-950);
+}
+.arcane.light {
+    --ui-primary: var(--color-sky-500);
+    --ui-secondary: var(--color-violet-500);
+
+    --ui-bg: var(--color-depth-50);
+    --ui-bg-muted: var(--color-depth-100);
+    --ui-bg-elevated: var(--color-violet-100);
+    --ui-bg-accented: var(--color-indigo-300);
+    --ui-bg-inverted: var(--color-depth-950);
+
+    --ui-border: var(--color-violet-300);
+    --ui-border-muted: var(--color-violet-300);
+    --ui-border-accented: var(--color-violet-400);
+    --ui-border-inverted: var(--color-depth-900);
+
+    --ui-text-dimmed: var(--color-violet-400);
+    --ui-text-muted: var(--color-indigo-600);
+    --ui-text-toned: var(--color-sky-800);
+    --ui-text: var(--color-depth-600);
+    --ui-text-highlighted: var(--color-depth-950);
+    --ui-text-inverted: var(--color-depth-50);
+
+    --arc-bg-pattern: url("@/06-shared/assets/patterns/pattern_37-light.svg");
+    --arc-cs-bg-pattern: url("@/06-shared/assets/patterns/pattern_54-light.svg");
+    --arc-bg-size: 30%;
+}

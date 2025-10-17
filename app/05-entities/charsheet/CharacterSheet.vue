@@ -20,7 +20,7 @@ const accordionItems: AccordionItem[] = [
 </script>
 
 <template>
-  <div class="character-sheet">
+  <div>
     <StatRow class="justify-between">
       <StatField label="Hero points">
         <StatCheckCounter :max-count="3" />
