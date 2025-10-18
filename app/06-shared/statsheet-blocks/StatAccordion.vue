@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<AccordionProps>(), {
   disabled: false,
   defaultValue: undefined,
   ui: {
-    header: "stat-accordion-header rounded-lg px-1 my-2",
+    header: "stat-accordion-header px-1 my-2",
+    trigger: "text-lg font-bold",
   },
 });
 const slots = defineSlots<AccordionSlots>();
@@ -28,7 +29,8 @@ const slots = defineSlots<AccordionSlots>();
 
 <style>
 .stat-accordion-header {
-  border: var(--ui-border-accented) dashed 1px;
-  background-color: var(--ui-bg-accented);
+  border: var(--ui-border-accented) dashed;
+  border-width: 0 0 1px 1px;
+  border-radius: 0 0 0 calc(var(--ui-radius) * 1.5);
 }
 </style>

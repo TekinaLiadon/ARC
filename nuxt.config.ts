@@ -72,9 +72,9 @@ export default defineNuxtConfig({
     ],
   },
   ui: {
-    colorMode: {
-      preference: "dark",
-      fallback: "dark",
+    colorMode: false,
+    theme: {
+      transitions: true,
     },
   },
 });

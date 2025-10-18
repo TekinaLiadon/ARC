@@ -25,12 +25,22 @@ const accordionItems: AccordionItem[] = [
       <StatField label="Hero points">
         <StatCheckCounter :max-count="3" />
       </StatField>
+      <StatField label="Hit points">
+        <UFieldGroup>
+          <StatInputNumber
+            class="w-min min-w-[6em]"
+            color="error"
+            :highlight="true"
+          />
+          <UBadge color="neutral" variant="outline" size="lg">20</UBadge>
+        </UFieldGroup>
+      </StatField>
     </StatRow>
     <StatAccordion :items="accordionItems" :default-value="['0']">
       <template #content="{ item }">
         <StatColumns :columns="3">
           <StatImage label="Character art" />
-          <StatColumn :span-size="2">
+          <StatColumn class="col-span-2">
             <StatField label="Name" class="mb-2">
               <StatInput :ui="{ root: '' }" />
             </StatField>

@@ -7,7 +7,7 @@ const props = defineProps<Props>();
 
 <template>
   <div>
-    <div class="text-sm whitespace-nowrap text-default font-medium">
+    <div class="text-sm whitespace-nowrap text-default font-semibold">
       {{ props.label }}
     </div>
     <div class="mt-1">
@@ -16,4 +16,4 @@ const props = defineProps<Props>();
   </div>
 </template>
 
-<style scoped></style>
+<style></style>

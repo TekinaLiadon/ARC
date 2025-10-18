@@ -1,14 +1,7 @@
-<script setup lang="ts">
-interface Props {
-  spanSize: number;
-}
-const props = withDefaults(defineProps<Props>(), {
-  spanSize: 1,
-});
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div :class="`col-span-${props.spanSize}`">
+  <div>
     <slot />
   </div>
 </template>
