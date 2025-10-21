@@ -4,6 +4,7 @@ import type { InputProps } from "#ui/components/Input.vue";
 const props = withDefaults(defineProps<InputProps>(), {
   ui: {
     root: "w-full",
+    base: "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
   },
   size: "xl",
 });

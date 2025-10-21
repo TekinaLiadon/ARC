@@ -17,6 +17,10 @@ const accordionItems: AccordionItem[] = [
     label: "Bio",
     icon: "i-rpg-character",
   },
+  {
+    label: "Stats",
+    icon: "i-rpg-skills",
+  },
 ];
 </script>
 
@@ -39,7 +43,7 @@ const accordionItems: AccordionItem[] = [
             <StatField label="From ancestry">
               <StatInputNumber size="md" orientation="horizontal" />
             </StatField>
-            <StatField label="Bonuses">
+            <StatField label="From whatever">
               <StatInputNumber size="md" orientation="horizontal" />
             </StatField>
           </StatPopoverButton>
@@ -47,55 +51,121 @@ const accordionItems: AccordionItem[] = [
       </StatField>
       <StatField label="Dying/Wounded">
         <UFieldGroup>
-          <StatInputNumber class="w-min min-w-[6em]" min="0" />
-          <StatInputNumber class="w-min min-w-[6em]" min="0" />
+          <StatInputNumber class="w-min min-w-[6em]" :min="0" />
+          <StatInputNumber class="w-min min-w-[6em]" :min="0" />
         </UFieldGroup>
       </StatField>
     </StatRow>
-    <StatAccordion :items="accordionItems" :default-value="['0']">
+    <StatAccordion :items="accordionItems" :default-value="['0', '1']">
       <template #content="{ item }">
-        <StatColumns :columns="3">
-          <StatImage label="Character art" />
-          <StatColumn class="col-span-2">
-            <StatField label="Name" class="mb-2">
-              <StatInput :ui="{ root: '' }" />
+        <template v-if="item.label === 'Bio'">
+          <StatColumns :columns="3">
+            <StatImage label="Character art" />
+            <StatColumn class="col-span-2">
+              <StatField label="Name" class="mb-2">
+                <StatInput :ui="{ root: '' }" />
+              </StatField>
+              <StatField label="About">
+                <StatTextarea :rows="9" />
+              </StatField>
+            </StatColumn>
+          </StatColumns>
+          <StatColumns :columns="4">
+            <StatField label="Ancestry">
+              <StatInput />
             </StatField>
-            <StatField label="About">
-              <StatTextarea :rows="9" />
+            <StatField label="Heritage">
+              <StatInput />
             </StatField>
-          </StatColumn>
-        </StatColumns>
-        <StatColumns :columns="4">
-          <StatField label="Ancestry">
-            <StatInput />
-          </StatField>
-          <StatField label="Heritage">
-            <StatInput />
-          </StatField>
-          <StatField label="Background">
-            <StatInput />
-          </StatField>
-          <StatField label="Alignment">
-            <StatInput />
-          </StatField>
-          <StatField label="Class">
-            <StatInput />
-          </StatField>
-          <StatField label="Deity">
-            <StatInput />
-          </StatField>
-          <StatField label="Size">
-            <StatInput />
-          </StatField>
-          <StatField label="Level">
-            <UFieldGroup>
-              <StatInput type="number" disabled />
-              <StatInput>
-                <template #trailing>XP</template>
-              </StatInput>
-            </UFieldGroup>
-          </StatField>
-        </StatColumns>
+            <StatField label="Background">
+              <StatInput />
+            </StatField>
+            <StatField label="Alignment">
+              <StatInput />
+            </StatField>
+            <StatField label="Class">
+              <StatInput />
+            </StatField>
+            <StatField label="Deity">
+              <StatInput />
+            </StatField>
+            <StatField label="Size">
+              <StatInput />
+            </StatField>
+            <StatField label="Level">
+              <UFieldGroup>
+                <StatInput type="number" disabled />
+                <StatInput>
+                  <template #trailing>XP</template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+          </StatColumns>
+        </template>
+        <template v-if="item.label === 'Stats'">
+          <StatRow class="justify-between">
+            <StatField label="Strength">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+            <StatField label="Dexterity">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+            <StatField label="Constitution">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+            <StatField label="Intelligence">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+            <StatField label="Wisdom">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+            <StatField label="Charisma">
+              <UFieldGroup orientation="vertical">
+                <StatInput type="number" disabled>
+                  <template #trailing> Mod </template>
+                </StatInput>
+                <StatInput type="number" highlight>
+                  <template #trailing> Score </template>
+                </StatInput>
+              </UFieldGroup>
+            </StatField>
+          </StatRow>
+        </template>
       </template>
     </StatAccordion>
   </div>
