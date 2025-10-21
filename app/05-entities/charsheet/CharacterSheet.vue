@@ -10,6 +10,7 @@ import StatCheckCounter from "~/06-shared/statsheet-blocks/StatCheckCounter.vue"
 import StatRow from "~/06-shared/statsheet-blocks/StatRow.vue";
 import type { AccordionItem } from "@nuxt/ui";
 import StatAccordion from "~/06-shared/statsheet-blocks/StatAccordion.vue";
+import StatPopoverButton from "~/06-shared/statsheet-blocks/StatPopoverButton.vue";
 
 const accordionItems: AccordionItem[] = [
   {
@@ -27,12 +28,27 @@ const accordionItems: AccordionItem[] = [
       </StatField>
       <StatField label="Hit points">
         <UFieldGroup>
-          <StatInputNumber
-            class="w-min min-w-[6em]"
-            color="error"
-            :highlight="true"
-          />
-          <UBadge color="neutral" variant="outline" size="lg">20</UBadge>
+          <StatInputNumber class="w-min min-w-[6em]" color="error" />
+          <UTooltip text="Maximum">
+            <UBadge color="neutral" variant="outline" size="lg">20</UBadge>
+          </UTooltip>
+          <StatPopoverButton>
+            <StatField label="From class">
+              <StatInputNumber size="md" orientation="horizontal" />
+            </StatField>
+            <StatField label="From ancestry">
+              <StatInputNumber size="md" orientation="horizontal" />
+            </StatField>
+            <StatField label="Bonuses">
+              <StatInputNumber size="md" orientation="horizontal" />
+            </StatField>
+          </StatPopoverButton>
+        </UFieldGroup>
+      </StatField>
+      <StatField label="Dying/Wounded">
+        <UFieldGroup>
+          <StatInputNumber class="w-min min-w-[6em]" min="0" />
+          <StatInputNumber class="w-min min-w-[6em]" min="0" />
         </UFieldGroup>
       </StatField>
     </StatRow>
@@ -73,7 +89,7 @@ const accordionItems: AccordionItem[] = [
           </StatField>
           <StatField label="Level">
             <UFieldGroup>
-              <StatInputNumber />
+              <StatInput type="number" disabled />
               <StatInput>
                 <template #trailing>XP</template>
               </StatInput>

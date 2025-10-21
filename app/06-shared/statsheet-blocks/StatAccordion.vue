@@ -29,8 +29,7 @@ const slots = defineSlots<AccordionSlots>();
 
 <style>
 .stat-accordion-header {
-  border: var(--ui-border-accented) dashed;
-  border-width: 0 0 1px 1px;
-  border-radius: 0 0 0 calc(var(--ui-radius) * 1.5);
+  border: 1px var(--ui-border-accented) dashed;
+  border-radius: calc(var(--ui-radius) * 1.5);
 }
 </style>

@@ -28,8 +28,8 @@
     --ui-bg-accented: var(--color-indigo-950);
     --ui-bg-inverted: var(--color-depth-200);
 
-    --ui-border: var(--color-depth-900);
-    --ui-border-muted: var(--color-depth-800);
+    --ui-border: var(--color-depth-800);
+    --ui-border-muted: var(--color-depth-700);
     --ui-border-accented: var(--color-depth-600);
     --ui-border-inverted: var(--color-depth-300);
 
