@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       "/lair/**": {swr: 60}
     },
   },
+  routeRules: { // Почему бы то, что под авторизацией не запилить в SPA?
+    // "/lair": {ssr: false}
+  },
   devtools: { enabled: true },
   modules: [
     "@nuxt/eslint",
