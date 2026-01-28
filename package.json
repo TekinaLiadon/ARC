@@ -8,8 +8,9 @@
   "author": "grik <grik.nota2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
     "dev": "nuxt dev",
+    "start": "nuxt start --port 4023",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
