@@ -11,6 +11,7 @@ import StatRow from "~/06-shared/statsheet-blocks/StatRow.vue";
 import type { AccordionItem } from "@nuxt/ui";
 import StatAccordion from "~/06-shared/statsheet-blocks/StatAccordion.vue";
 import StatPopoverButton from "~/06-shared/statsheet-blocks/StatPopoverButton.vue";
+import StatCard from "~/06-shared/statsheet-blocks/StatCard.vue";
 
 const accordionItems: AccordionItem[] = [
   {
@@ -20,6 +21,10 @@ const accordionItems: AccordionItem[] = [
   {
     label: "Stats",
     icon: "i-rpg-skills",
+  },
+  {
+    label: "Defences",
+    icon: "i-rpg-bell-shield",
   },
 ];
 </script>
@@ -33,8 +38,8 @@ const accordionItems: AccordionItem[] = [
       <StatField label="Hit points">
         <UFieldGroup>
           <StatInputNumber class="w-min min-w-[6em]" color="error" />
-          <UTooltip text="Maximum">
-            <UBadge color="neutral" variant="outline" size="lg">20</UBadge>
+          <UTooltip text="Maximum = ancestry + (class + con) * level">
+            <UBadge variant="subtle" color="secondary" size="lg">20</UBadge>
           </UTooltip>
           <StatPopoverButton>
             <StatField label="From class">
@@ -56,7 +61,7 @@ const accordionItems: AccordionItem[] = [
         </UFieldGroup>
       </StatField>
     </StatRow>
-    <StatAccordion :items="accordionItems" :default-value="['0', '1']">
+    <StatAccordion :items="accordionItems" :default-value="['0', '1', '2']">
       <template #content="{ item }">
         <template v-if="item.label === 'Bio'">
           <StatColumns :columns="3">
@@ -165,6 +170,109 @@ const accordionItems: AccordionItem[] = [
               </UFieldGroup>
             </StatField>
           </StatRow>
+        </template>
+        <template v-if="item.label === 'Defences'">
+          <StatColumns :columns="3">
+            <StatCard title="Armor Class">
+              <UFieldGroup>
+                <UTooltip text="AC = dexterity bonus + proficiency + item">
+                  <UBadge variant="subtle" color="secondary" size="lg">
+                    20
+                  </UBadge>
+                </UTooltip>
+                <StatPopoverButton>
+                  <StatField label="From whatever">
+                    <StatInputNumber size="md" orientation="horizontal" />
+                  </StatField>
+                </StatPopoverButton>
+              </UFieldGroup>
+              <StatField label="Proficiency">
+                <StatPopoverButton>
+                  <StatField label="Unarmored">
+                    <USelect
+                      class="w-full"
+                      :items="['None', 'Trained', 'Expert', 'Master', 'Legend']"
+                    />
+                  </StatField>
+                  <StatField label="Light">
+                    <USelect
+                      class="w-full"
+                      :items="['None', 'Trained', 'Expert', 'Master', 'Legend']"
+                    />
+                  </StatField>
+                  <StatField label="Medium">
+                    <USelect
+                      class="w-full"
+                      :items="['None', 'Trained', 'Expert', 'Master', 'Legend']"
+                    />
+                  </StatField>
+                  <StatField label="Heavy">
+                    <USelect
+                      class="w-full"
+                      :items="['None', 'Trained', 'Expert', 'Master', 'Legend']"
+                    />
+                  </StatField>
+                </StatPopoverButton>
+              </StatField>
+              <StatField label="Item">
+                <UFieldGroup>
+                  <StatInput size="md" />
+                  <USelect
+                    class="w-full"
+                    :items="[
+                      'Unarmored',
+                      'Light Armor',
+                      'Medium Armor',
+                      'Heavy Armor',
+                    ]"
+                  />
+                  <StatPopoverButton>
+                    <StatField label="AC Bonus">
+                      <StatInput type="number" size="md" />
+                    </StatField>
+                    <StatField label="STR requirements">
+                      <StatInput type="number" size="md" />
+                    </StatField>
+                    <StatField label="DEX cap">
+                      <StatInput type="number" size="md" />
+                    </StatField>
+                    <StatField label="Check penalties">
+                      <StatInput type="number" size="md" />
+                    </StatField>
+                    <StatField label="Speed penalty">
+                      <StatInput type="number" size="md" />
+                    </StatField>
+                  </StatPopoverButton>
+                </UFieldGroup>
+              </StatField>
+            </StatCard>
+            <StatCard title="Shield">
+              <UBadge variant="subtle" color="secondary" size="lg"> +2 </UBadge>
+              <StatField label="HP">
+                <UFieldGroup>
+                  <StatInputNumber
+                    orientation="vertical"
+                    class="w-min min-w-[6em]"
+                    color="error"
+                    size="md"
+                  />
+                  <UBadge variant="subtle" color="secondary" size="lg">
+                    / 10
+                  </UBadge>
+                </UFieldGroup>
+              </StatField>
+              <StatField label="Hardness">
+                <UBadge variant="subtle" color="secondary" size="lg">
+                  3
+                </UBadge>
+              </StatField>
+              <StatField label="Item">
+                <UBadge variant="subtle" color="secondary" size="lg">
+                  3
+                </UBadge>
+              </StatField>
+            </StatCard>
+          </StatColumns>
         </template>
       </template>
     </StatAccordion>
